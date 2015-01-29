@@ -1,0 +1,112 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Registration App</title>
+    <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "datepicker/css/datepicker3.css" %}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <section id="registration_app">
+    <div id="form_wrapper">
+        <form class="form-horizontal" id="form">
+            <div class="control-group" id="name_control_group">
+                <label class="control-label" for="name">Name: </label>
+
+                <div class="controls">
+                    <input type="text" id="name" name="name">
+                    <span class="help-block hide" id="name_error">help</span>
+                </div>
+            </div>
+            <div class="control-group" id="birthday_control_group">
+                <label class="control-label" for="birthday">Birthday: </label>
+                <div class="controls">
+                    <input type="text" id="birthday" name="birthday"/>
+                    <span class="help-block hide" id="birthday_error">help</span>
+                </div>
+            </div>
+            <div class="control-group" id="gender_control_group">
+                <label class="control-label" for="gender">Gender: </label>
+
+                <div class="controls">
+                    <label class="radio">
+                        <input type="radio" name="gender" id="gender_male" value="M" checked>
+                        Male
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="gender" id="gender_female" value="F">
+                        Female
+                    </label>
+                    <span class="help-block hide" id="gender_error">help</span>
+                </div>
+            </div>
+            <div class="control-group" id="email_control_group">
+                <label class="control-label" for="email">E-mail: </label>
+
+                <div class="controls">
+                    <input type="text" id="email" name="email">
+                    <span class="help-block hide" id="email_error">help</span>
+                </div>
+            </div>
+            <div class="control-group" id="tel_control_group">
+                <label class="control-label" for="tel">Tel: </label>
+
+                <div class="controls">
+                    <input type="text" id="tel" name="tel">
+                    <span class="help-block hide" id="tel_error">help</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn" id="submit">Добавить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="persons_table">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Gender</th>
+                <th>E-mail</th>
+                <th>Telephone</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody id="table_body">
+            </tbody>
+        </table>
+    </div>
+</section>
+</div>
+
+
+<script id="person-item-template" type="text/template">
+    <td><%= id %></td>
+    <td><%= name %></td>
+    <td><%= birthday %></td>
+    <td><%= gender %></td>
+    <td><%= email %></td>
+    <td><%= tel %></td>
+    <td>
+        <button class="btn delete">Delete</button>
+    </td>
+</script>
+<script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+<script src="{% static "js/underscore.js" %}"></script>
+<script src="{% static "js/backbone.js" %}"></script>
+<script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+<script src="{% static "datepicker/js/bootstrap-datepicker.js" %}"></script>
+<script src="{% static "js/person_model.js" %}"></script>
+<script src="{% static "js/persons_collection.js" %}"></script>
+<script src="{% static "js/person_view.js" %}"></script>
+<script src="{% static "js/app_view.js" %}"></script>
+<script src="{% static "js/app.js" %}"></script>
+</body>
+
+</html>
